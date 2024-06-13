@@ -1,2 +1,4 @@
 build
 *.wasm
+build-em
+wasi-sdk*

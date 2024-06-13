@@ -30,7 +30,7 @@ example.wasm: example.c $(OPENMP_LIB)
 	make check-wasi-sdk
 	$(WASI_CC) -fopenmp=libomp -g --sysroot=$(WASI_SYSROOT) --target=wasm32-wasi-threads \
 	  -I$(BUILD_DIR)/runtime/src -I$(WASI_SYSROOT)/include -pthread \
-	  -Wl,--import-memory,--export-memory,--max-memory=67108864 example.c \
+	  -Wl,--import-memory,--export-memory,--max-memory=67108864 example.c other.c \
 	  -L$(BUILD_DIR)/runtime/src -lomp \
 	  -lwasi-emulated-getpid \
 	  -o example.wasm
